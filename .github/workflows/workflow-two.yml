@@ -2,7 +2,7 @@ name: Workflow two
 on: push
 jobs:
     lint-check: 
-        runs-on: ubuntnu-latest
+        runs-on: ubuntu-latest
         steps:
           - name: get code
             uses: actions/checkout@v4
@@ -12,7 +12,7 @@ jobs:
             run: npm run lint
     test:
         needs: lint-check
-        runs-on: ubunutu-latest
+        runs-on: ubuntu-latest
         steps:
          - name: get code
            uses: actions/checkout@v4
@@ -22,7 +22,7 @@ jobs:
            run: npm run test
     build-deploy:
         needs: test
-        runs-on: ubunutu-latest
+        runs-on: ubuntu-latest
         steps:
          - name: get code
            uses: actions/checkout@v4
