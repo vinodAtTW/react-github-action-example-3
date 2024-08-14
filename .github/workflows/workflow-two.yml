@@ -1,4 +1,4 @@
-name: Workflow two Event and Filter
+name: Workflow for Event and Filter Test on pull_request
 on: 
   pull_request:
     types:
