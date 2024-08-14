@@ -1,0 +1,43 @@
+name: Workflow for data
+on: push
+jobs:
+    test:
+        runs-on: latest-ubunutu
+        steps:
+        - name: Get code
+          uses: actions/checkout@v4
+        - name: install Dependecies
+          run: npm ci
+        - name: Lint check 
+          run: npm run lint
+        - name: Test code 
+          run: npm run test
+    build:
+        needs: test
+        runs-on: latest-ubunutu
+        steps:
+        - name: Get code 
+          uses: actions/checkout@v4
+        - name: install dependencies
+          run: npm ci
+        - name: Build
+          run: npm run build
+        - name: Upload artifacts 
+          uses: actions/upload-artifact@v4
+          with:
+            name: dist-files
+            path: |
+              dist
+              package.json
+    deploy:
+        needs: build
+        runs-on: latest-ubuntu
+        steps:
+        - name: Deploy
+          run: echo "Deploying"
+    
+
+        
+
+
+
