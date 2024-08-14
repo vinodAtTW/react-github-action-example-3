@@ -1,4 +1,4 @@
-name: Workflow two 
+name: Workflow two Event and Filter
 on: 
   pull_request:
     types:
