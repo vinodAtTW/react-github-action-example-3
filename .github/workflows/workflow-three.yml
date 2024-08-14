@@ -2,7 +2,7 @@ name: Workflow for data
 on: push
 jobs:
     lint-test:
-        runs-on: latest-ubunutu
+        runs-on: ubuntu-latest
         steps:
         - name: Get code
           uses: actions/checkout@v4
@@ -14,7 +14,7 @@ jobs:
           run: npm run test
     build:
         needs: lint-test
-        runs-on: latest-ubunutu
+        runs-on: ubuntu-latest
         steps:
         - name: Get code 
           uses: actions/checkout@v4
@@ -31,7 +31,7 @@ jobs:
               package.json
     deploy:
         needs: build
-        runs-on: latest-ubuntu
+        runs-on: ubuntu-latest
         steps:
         - name: Deploy
           run: echo "Deploying"
