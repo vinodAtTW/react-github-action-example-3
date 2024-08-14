@@ -1,7 +1,7 @@
 name: Workflow for data
 on: push
 jobs:
-    test:
+    lint-test:
         runs-on: latest-ubunutu
         steps:
         - name: Get code
@@ -13,7 +13,7 @@ jobs:
         - name: Test code 
           run: npm run test
     build:
-        needs: test
+        needs: lint-test
         runs-on: latest-ubunutu
         steps:
         - name: Get code 
